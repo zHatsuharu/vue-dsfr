@@ -40,7 +40,9 @@ export default defineConfig({
         dir: 'dist',
         globals: {
           vue: 'Vue',
+          'oh-vue-icons': 'OhVueIcons',
         },
+        assetFileNames: (v) => 'vue-dsfr' + v.name?.replace(/[^.]+\./, '.'),
       },
     },
   },

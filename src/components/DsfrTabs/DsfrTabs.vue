@@ -8,7 +8,7 @@ import DsfrTabContent from './DsfrTabContent.vue'
 
 const props = withDefaults(defineProps<{
   tabListName: string
-  tabTitles:(DsfrTabItemProps & { title: string })[]
+  tabTitles:(Partial<DsfrTabItemProps> & { title: string })[]
   tabContents?: string[]
   initialSelectedIndex?: number
 }>(), {

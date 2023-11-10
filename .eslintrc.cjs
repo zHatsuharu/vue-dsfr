@@ -20,7 +20,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.ts?(x)'],
+      files: ['**/*.ts?(x)', '**/*.mts?(x)'],
       parser: '@typescript-eslint/parser',
       rules: {
         semi: ['error', 'never'],

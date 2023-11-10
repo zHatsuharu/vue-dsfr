@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import type { HTMLAttributes } from 'vue'
-import DsfrTableCell from './DsfrTableCell.vue'
+import type { HTMLAttributes, TdHTMLAttributes } from 'vue'
+import DsfrTableCell, { type DsfrTableCellProps } from './DsfrTableCell.vue'
 
 export type DsfrTableRowProps = {
-  rowData?: (string | Record<string, any>)[] // eslint-disable-line @typescript-eslint/no-explicit-any
+  rowData?: (string | (DsfrTableCellProps['field'] & { cellAttrs: TdHTMLAttributes }))[] // eslint-disable-line @typescript-eslint/no-explicit-any
   rowAttrs?: HTMLAttributes
 }
 

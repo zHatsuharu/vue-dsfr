@@ -16,7 +16,7 @@ Bonjour les artistes du code ! Voici `DsfrTabs`, le composant d'onglets Vue qui 
 | initialSelectedIndex | `number`                  | `0`          |             | Index de l'onglet sélectionné au chargement.               |
 | tabTitles            | `string[]`                   | `[]`   |             | Titres des onglets avec les id des panneaux et onglets associés. |
 
-## 📡 Les Événements
+## 📡 Événements
 
 |  nom                   |   donnée (*payload*) | détail de la donnée
 | ---------------------- |  ---------            | --- |

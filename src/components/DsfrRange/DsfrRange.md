@@ -38,7 +38,7 @@ Les curseurs sont des entrées numériques qui permettent de voir graphiquement 
 | `double` | `boolean` | `undefined` | Active un second curseur si `true`. |
 | `disabled` | `boolean` | `undefined` | Désactive le curseur si `true`. |
 
-## 📡 Les événements
+## 📡 Événements
 
 - **`update:modelValue`**: Émis lors de la modification de la valeur du curseur. Renvoie la nouvelle valeur.
 

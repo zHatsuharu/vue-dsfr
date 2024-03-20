@@ -36,20 +36,20 @@ Autres props :
 - `closed` sert à indiquer si l’alerte doit être présente (`false`) ou non (`true`) dans le DOM.
 - `titleTag` permet d’indiquer la balise à utiliser pour le `title` : il s’agit de `h3` par défaut, cependant, pour passer les tests RGAA, il faut que les niveaux de titres se suivent et soient cohérents (par exemple, si sur la page il n’y a pas de `<h2>`, il faut passer `'h2'` comme valeur à la prop `titleTag` pour que le titre de la modal soit un `<h2>`).
 
-## 🛠️ Les props
+## 🛠️ Props
 
-|  nom                   |   type      |  défaut         | obligatoire |
-| ----------------------- | ---------   | ---------------- | ------ |
-| `id`                    | *`string`*    | *random string*  | |
-| `type`                  | *`'info' \| 'success' \| 'warning' \| 'error'`*  | `'info'`           |
-| `title`                 | *`string`*  |      `''`        |  |
-| `description`           | *`string`*  |                  |  |
-| `titleTag`              | [*`TitleTag`*](/docs/types.md#title-tag "'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6'")  |    `'h3'`     | |
-| `small`                 | *`boolean`* | `false`          | |
-| `closed`                | *`boolean`* | `false`          | |
-| `closeable`             | *`boolean`* | `false`          | |
+|  Nom                   |   Type      |  Défaut         | Obligatoire | Description |
+| ----------------------- | ---------   | ---------------- | ------ | ----- |
+| `id`                    | *`string`*    | *random string*  | | Valeur de l’attribut `id` de l’alerte
+| `type`                  | *`'info' \| 'success' \| 'warning' \| 'error'`*  | `'info'`           | Type de l’alerte
+| `title`                 | *`string`*  |      `''`        |  | Titre de l’alerte |
+| `description`           | *`string`*  |                  |  | Description de l’alerte |
+| `titleTag`              | [*`TitleTag`*](/docs/types.md#title-tag "'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6'")  |    `'h3'`     | | Balise de la balise de titre de l’alerte |
+| `small`                 | *`boolean`* | `false`          | | Est-ce que l’alerte doit être petite (sans `titre`, uniquement `description`) ?|
+| `closed`                | *`boolean`* | `false`          | | Est-ce que l’alerte est fermée ? |
+| `closeable`             | *`boolean`* | `false`          | | Est-ce que l’alerte peut être fermée ? |
 
-## 📡 Les événements
+## 📡 Événements
 
 `DsfrAlert` déclenche l’événement `'close'` lors du clic sur le bouton pour fermer l’alerte, sans données (sans *payload*).
 
@@ -65,13 +65,19 @@ Autres props :
 
 ::: code-group
 
-<Story data-title="Démo" min-h="1600px">
+<Story data-title="Démo" min-h="200px">
   <DsfrAlertDemo />
 </Story>
 
 <<< docs-demo/DsfrAlertDemo.vue [Code de la démo]
+:::
+
+## ⚙️ Code source du composant
+
+::: code-group
 
 <<< DsfrAlert.vue
+<<< DsfrAlert.types.ts
 :::
 
 <script setup lang="ts">

@@ -34,7 +34,7 @@ Le composant « contrôle segmenté » incite l'utilisateur à choisir entre
 
 :::
 
-## 📡 Les événements
+## 📡 Événements
 
 | Nom                | Valeur               | Description                                  |
 |--------------------|----------------------|----------------------------------------------|

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
+import { OhVueIcon as VIcon } from 'oh-vue-icons'
 
 import DsfrButton from '../DsfrButton/DsfrButton.vue'
 
@@ -15,7 +16,14 @@ const props = withDefaults(defineProps<DsfrCalloutProps>(), {
 })
 
 const dsfrIcon = computed(() => typeof props.icon === 'string' && props.icon.startsWith('fr-icon-'))
-const iconProps = computed(() => dsfrIcon.value ? undefined : typeof props.icon === 'string' ? { name: props.icon } : { ...(props.icon ?? {}) })
+const iconProps = computed(() => (dsfrIcon.value || !props.icon)
+  ? undefined
+  : (
+      typeof props.icon === 'string'
+        ? { name: props.icon, scale: 1.2 }
+        : { ...(props.icon ?? {}) }
+    ),
+)
 </script>
 
 <template>
@@ -23,10 +31,13 @@ const iconProps = computed(() => dsfrIcon.value ? undefined : typeof props.icon 
     class="fr-callout"
     :class="{ [String(icon)]: dsfrIcon }"
   >
-    <VIcon
-      v-if="iconProps"
-      v-bind="iconProps"
-    />
+    <template
+      v-if="!dsfrIcon && iconProps"
+    >
+      <VIcon
+        v-bind="iconProps"
+      />
+    </template>
     <component
       :is="titleTag"
       class="fr-callout__title"
@@ -47,9 +58,3 @@ const iconProps = computed(() => dsfrIcon.value ? undefined : typeof props.icon 
     <slot />
   </div>
 </template>
-
-<style scoped>
-.fr-callout__text {
-  color: var(--text-default-grey);
-}
-</style>

@@ -31,7 +31,7 @@ Autres props :
 | `id`                    | *`string`*    | *random string*  | |
 | `expandedId`            | *`string`*    | *`undefined`*  | |
 
-## 📡 Les événements
+## 📡 Événements
 
 `DsfrAccordion` déclenche l’événement `'expand'` au clic sur le titre de l’accordéon.
 

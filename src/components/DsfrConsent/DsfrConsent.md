@@ -21,7 +21,7 @@ Le gestionnaire de consentement est constitué des éléments suivants :
 | ----------------------- | ---------     | ---------------- | --------    |
 | `url`                   | *`string`*    | `''`             |             |
 
-## 📡 Les événements
+## 📡 Événements
 
 `DsfrConsent` dispose de trois boutons qui déclenchent chacun un évènement spécifique au clic permettant à l'utilisateur de l'attraper afin de déclencher une fonction correspondante.
 

@@ -31,7 +31,7 @@ Slot(s) disponible(s):
 | `title`                 | *`string`*  |      `''`        |  |
 | `closeable`             | *`boolean`* | `false`          | |
 
-## 📡 Les événements
+## 📡 Événements
 
 `DsfrNotice` déclenche l’événement `'close'` lors du clic sur la croix de fermeture pour fermer la notice.
 

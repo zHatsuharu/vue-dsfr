@@ -36,7 +36,7 @@ Il se compose des éléments suivants :
 | small     | `Boolean` | `false`     |             | Réduit la taille de l'étiquette.                         |
 | iconOnly  | `Boolean` | `false`     |             | Affiche uniquement l'icône, sans texte.                  |
 
-## 📡 Les événements
+## 📡 Événements
 
 Pas d'événements personnalisés pour ce composant. Il se repose sur les événements natifs de ses balises sous-jacentes.
 

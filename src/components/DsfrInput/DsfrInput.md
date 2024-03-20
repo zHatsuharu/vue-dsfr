@@ -18,7 +18,7 @@ Le composant `DsfrInput`, outil essentiel dans l'arsenal de tout développeur Vu
 
 ---
 
-## 📡 Events
+## 📡 Événements
 
 | Nom                 | Description                                                                  |
 |---------------------|------------------------------------------------------------------------------|

@@ -27,7 +27,7 @@ Le composant « contrôle segmenté » incite l'utilisateur à choisir entre
 - `titleId`: Généré automatiquement si non spécifié.
 - `options`: Chaque élément représente un bouton radio avec ses props spécifiques.
 
-## 📡 Les événements
+## 📡 Événements
 
 | Nom                | Valeur               | Description                                  |
 |--------------------|----------------------|----------------------------------------------|

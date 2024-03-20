@@ -34,7 +34,7 @@ L’en-tête est sur fond blanc en thème clair et sur fond G800 en thème sombr
 | showSearch            | `Boolean`                     | `false`    |             | Affiche ou non la barre de recherche.                    |
 | showBeta              | `Boolean`                     | `false`    |             | Affiche ou non l'indicateur BETA.                        |
 
-## 📡 Events
+## 📡 Événements
 
 | Nom               | Description                                      |
 |-------------------|--------------------------------------------------|

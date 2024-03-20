@@ -19,7 +19,7 @@ Le composant `DsfrTable` est un élément puissant et polyvalent pour afficher d
 | `currentPage`     | `number`                                       | `1`       |             | La page actuelle dans la pagination du tableau.                                                     |
 | `resultsDisplayed`| `number`                                       | `10`      |             | Le nombre de résultats affichés par page dans la pagination.                                        |
 
-## Events 📡
+##📡 Événements
 
 | Nom                  | Description                                     |
 |----------------------|-------------------------------------------------|

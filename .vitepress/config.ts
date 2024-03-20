@@ -111,6 +111,10 @@ const composants = [
     link: '/composants/DsfrButtonGroup.md',
   },
   {
+    text: 'DsfrCallout',
+    link: '/composants/DsfrCallout.md',
+  },
+  {
     text: 'DsfrCard',
     link: '/composants/DsfrCard.md',
   },
@@ -153,6 +157,10 @@ const composants = [
   {
     text: 'DsfrRange',
     link: '/composants/DsfrRange.md',
+  },
+  {
+    text: 'DsfrSearchBar',
+    link: '/composants/DsfrSearchBar.md',
   },
   {
     text: 'DsfrSegmented',

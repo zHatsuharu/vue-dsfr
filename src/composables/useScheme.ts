@@ -56,9 +56,9 @@ const getThemeMatchingScheme = (scheme: string, mediaQuery: MediaQueryList): str
  * @returns {UseSchemeResult} Objet contenant la fonction `setScheme` pour changer le scheme, et les
  *          propriétés calculés (réactives et en lecture seule) `theme` et `scheme`.
  */
-export const useScheme = (options?: UseThemeOptions): UseSchemeResult | undefined => {
+export const useScheme = (options?: UseThemeOptions): UseSchemeResult | Record<string, never> => {
   if (typeof window === 'undefined') {
-    return
+    return {}
   }
 
   const opts = {

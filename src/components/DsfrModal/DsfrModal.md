@@ -23,18 +23,19 @@ Elle se compose des éléments suivants :
 
 ## 🛠️ Props
 
-| Propriété            | Type                           | Description                                                                                                    | Valeur par défaut                                              | Obligatoire  |
-|----------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|--------------|
-| `title`              | `string`                       | Titre de la modale.                                                                                            |                                                                | ✅            |
-| `modalId`            | `string`                       | Identifiant unique pour la modale.                                                                             | `getRandomId('modal', 'dialog')`                               |              |
-| `opened`             | `boolean`                      | Indique si la modale est ouverte.                                                                              | `false`                                                        |              |
-| `actions`            | `DsfrButtonProps[]`            | Liste des boutons d'action pour le pied de page de la modale.                                                  | `[]`                                                           |              |
-| `isAlert`            | `boolean`                      | Spécifie si la modale est une alerte (rôle `"alertdialog"` si `true`) ou non (le rôle sera  alors `"dialog"`). | `false`                                                        |              |
-| `origin`             | `{ focus: () => void }`        | Référence à l'élément d'origine pour redonner le focus après fermeture.                                        | `{ focus() {} }`                                               |              |
-| `icon`               | `string`                       | Nom de l'icône à afficher dans le titre de la modale.                                                          | `undefined`                                                    |              |
-| `size`               | `'sm' \| 'md' \| 'lg' \| 'xl'` | Taille de la modale.                                                                                           | `'md'`                                                         |              |
-| `closeButtonLabel`   | `string`                       | Label du bouton de fermeture˘.                                                                                 | `'Fermer'`                                                     |              |
-| `closeButtonTitle`   | `string`                       | Titre pour le bouton de fermeture (pour l'accessibilité).                                                      | `'Fermer la fenêtre modale'`                                   |              |
+| Propriété           | Type                           | Description                                                                                                    | Valeur par défaut                | Obligatoire  |
+|---------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------|----------------------------------|--------------|
+| `title`             | `string`                       | Titre de la modale.                                                                                            |                                  | ✅            |
+| `modalId`           | `string`                       | Identifiant unique pour la modale.                                                                             | `getRandomId('modal', 'dialog')` |              |
+| `opened`            | `boolean`                      | Indique si la modale est ouverte.                                                                              | `false`                          |              |
+| `actions`           | `DsfrButtonProps[]`            | Liste des boutons d'action pour le pied de page de la modale.                                                  | `[]`                             |              |
+| `isAlert`           | `boolean`                      | Spécifie si la modale est une alerte (rôle `"alertdialog"` si `true`) ou non (le rôle sera  alors `"dialog"`). | `false`                          |              |
+| `origin`            | `{ focus: () => void }`        | Référence à l'élément d'origine pour redonner le focus après fermeture.                                        | `{ focus() {} }`                 |              |
+| `icon`              | `string`                       | Nom de l'icône à afficher dans le titre de la modale.                                                          | `undefined`                      |              |
+| `size`              | `'sm' \| 'md' \| 'lg' \| 'xl'` | Taille de la modale.                                                                                           | `'md'`                           |              |
+| `closeButtonLabel`  | `string`                       | Label du bouton de fermeture˘.                                                                                 | `'Fermer'`                       |              |
+| `closeButtonTitle`  | `string`                       | Titre pour le bouton de fermeture (pour l'accessibilité).                                                      | `'Fermer la fenêtre modale'`     |              |
+| `closeButtonDisplay`| `boolean`                      | Affiche le bouton de fermeture.                                                                                | `true`                           |              |
 
 ## 📡 Événements
 

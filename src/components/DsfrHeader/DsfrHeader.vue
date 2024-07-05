@@ -176,13 +176,23 @@ const isWithSlotNav = computed(() => Boolean(slots.mainnav))
           </div>
           <div class="fr-header__tools">
             <div
-              v-if="quickLinks?.length || languageSelector"
+              v-if="quickLinks?.length || languageSelector || $slots['after-quick-links'] || $slots['before-quick-links'] || $slots.append"
               class="fr-header__tools-links"
             >
+              <!-- @slot Slot nommé before-quick-links, se situe avant les liens. Sera dans  <div class="fr-header__tools"> -->
+              <slot
+                v-if="!menuOpened"
+                name="before-quick-links"
+              />
               <DsfrHeaderMenuLinks
                 v-if="!menuOpened"
                 :links="quickLinks"
                 :nav-aria-label="quickLinksAriaLabel"
+              />
+              <!-- @slot Slot nommé after-quick-links, se situe après les liens mais avant le languageSelector. Sera dans  <div class="fr-header__tools"> -->
+              <slot
+                v-if="!menuOpened"
+                name="after-quick-links"
               />
               <template v-if="languageSelector">
                 <DsfrLanguageSelector
@@ -190,6 +200,11 @@ const isWithSlotNav = computed(() => Boolean(slots.mainnav))
                   @select="emit('language-select', $event)"
                 />
               </template>
+              <!-- @slot Slot nommé append, se situe après tous les liens et après le languageSelector . Sera dans  <div class="fr-header__tools">  -->
+              <slot
+                v-if="!menuOpened"
+                name="append"
+              />
             </div>
             <div
               v-if="showSearch"
@@ -234,12 +249,27 @@ const isWithSlotNav = computed(() => Boolean(slots.mainnav))
                 />
               </template>
               <nav role="navigation">
+                <!-- @slot Slot nommé before-quick-links, se situe avant les liens mais apres le languageSelector en mode reduit. Sera dans   <nav role="navigation"> -->
+                <slot
+                  v-if="menuOpened"
+                  name="before-quick-links"
+                />
                 <DsfrHeaderMenuLinks
                   v-if="menuOpened"
                   role="navigation"
                   :links="quickLinks"
                   :nav-aria-label="quickLinksAriaLabel"
                   @link-click="onQuickLinkClick"
+                />
+                <!-- @slot Slot nommé after-quick-links, se situe après les liens. Sera dans   <nav role="navigation"> -->
+                <slot
+                  v-if="menuOpened"
+                  name="after-quick-links"
+                />
+                <!-- @slot Slot nommé append, se situe après tous les liens . Sera dans   <nav role="navigation">  -->
+                <slot
+                  v-if="menuOpened"
+                  name="append"
                 />
               </nav>
             </div>

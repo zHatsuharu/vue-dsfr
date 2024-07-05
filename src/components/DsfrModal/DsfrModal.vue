@@ -18,6 +18,7 @@ const props = withDefaults(defineProps<DsfrModalProps>(), {
   size: 'md',
   closeButtonLabel: 'Fermer',
   closeButtonTitle: 'Fermer la fenêtre modale',
+  closeButtonDisplay: true,
 })
 
 const emit = defineEmits<{ (e: 'close'): void }>()
@@ -112,6 +113,7 @@ const iconProps = computed(() => dsfrIcon.value
             <div class="fr-modal__body">
               <div class="fr-modal__header">
                 <button
+                  v-if="closeButtonDisplay"
                   ref="closeBtn"
                   class="fr-btn fr-btn--close"
                   :title="closeButtonTitle"

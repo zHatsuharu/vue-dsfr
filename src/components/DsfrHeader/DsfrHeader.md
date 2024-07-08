@@ -53,13 +53,14 @@ L’en-tête est composé :
 
 ## 🧩 Slots
 
-| Nom                  | Description                                                    |
-|----------------------|----------------------------------------------------------------|
-| operator             | Slot pour le logo de l'opérateur.                        |
-| before-quick-links   | Slot pour ajouter du contenu avant les liens rapides.          |
-| after-quick-links    | Slot pour ajouter du contenu après les liens rapides.          |
-| mainnav              | Slot pour le menu de navigation principal.               |
-| default              | Slot par défaut pour le contenu supplémentaire dans l'en-tête. |
+| Nom                | Description                                                                 |
+|--------------------|-----------------------------------------------------------------------------|
+| operator           | Slot pour le logo de l'opérateur.                                           |
+| before-quick-links | Slot pour ajouter du contenu avant les liens rapides.                       |
+| after-quick-links  | Slot pour ajouter du contenu après les liens rapides.                       |
+| mainnav            | Slot pour le menu de navigation principal.                                  |
+| default            | Slot par défaut pour le contenu supplémentaire dans l'en-tête.              |
+| append             | Slot pour ajouter du contenu après les liens rapides et le languageSelector |
 
 ## 📝 Exemples
 

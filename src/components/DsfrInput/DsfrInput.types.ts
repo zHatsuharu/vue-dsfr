@@ -11,6 +11,8 @@ export type DsfrInputProps = {
   labelClass?: string
   modelValue?: string | number | null
   wrapperClass?: string
+  disabled?: boolean
+  loading?: boolean
 }
 
 export type DsfrInputGroupProps = {

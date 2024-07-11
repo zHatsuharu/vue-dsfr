@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { ref, computed, useAttrs } from 'vue'
 import type { Ref } from 'vue'
+import { computed, ref, useAttrs } from 'vue'
 
 import { getRandomId } from '../../utils/random-utils'
 
@@ -20,6 +20,7 @@ const props = withDefaults(defineProps<DsfrInputProps>(), {
   labelClass: '',
   modelValue: '',
   wrapperClass: '',
+  loading: false,
 })
 
 defineEmits<{ (e: 'update:modelValue', payload: string): void }>()
@@ -64,32 +65,10 @@ defineExpose({
       class="fr-hint-text"
     >{{ hint }}</span>
   </label>
-
-  <component
-    :is="isComponent"
-    v-if="!wrapper"
-    :id="id"
-    v-bind="$attrs"
-    ref="__input"
-    class="fr-input"
-    :class="{
-      'fr-input--error': isInvalid,
-      'fr-input--valid': isValid,
-    }"
-    :value="modelValue"
-    :aria-describedby="descriptionId || undefined"
-    @input="$emit('update:modelValue', $event.target.value)"
-  />
-
-  <div
-    v-else
-    :class="[
-      { 'fr-input-wrap': isWithWrapper || $attrs.type === 'date' },
-      wrapperClass,
-    ]"
-  >
+  <div class="component">
     <component
       :is="isComponent"
+      v-if="!wrapper"
       :id="id"
       v-bind="$attrs"
       ref="__input"
@@ -100,8 +79,43 @@ defineExpose({
       }"
       :value="modelValue"
       :aria-describedby="descriptionId || undefined"
+      :disabled="disabled || loading"
+      :aria-disabled="disabled || loading"
       @input="$emit('update:modelValue', $event.target.value)"
     />
+    <div
+      v-else
+      :class="[
+        { 'fr-input-wrap': isWithWrapper || $attrs.type === 'date' },
+        wrapperClass,
+      ]"
+    >
+      <component
+        :is="isComponent"
+        :id="id"
+        v-bind="$attrs"
+        ref="__input"
+        class="fr-input"
+        :class="{
+          'fr-input--error': isInvalid,
+          'fr-input--valid': isValid,
+        }"
+        :value="modelValue"
+        :aria-describedby="descriptionId || undefined"
+        :disabled="disabled || loading"
+        :loading="loading"
+        :aria-disabled="disabled || loading"
+        @input="$emit('update:modelValue', $event.target.value)"
+      />
+    </div>
+    <div class="loader">
+      <VIcon
+        v-if="loading"
+        style="width: 25px; height: 25px;"
+        name="ri-loader-4-line"
+        animation="spin"
+      />
+    </div>
   </div>
 </template>
 
@@ -116,5 +130,15 @@ defineExpose({
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+  }
+.fr-input-wrap{
+  width: 100%;
+}
+.component{
+  display: flex;
+}
+.loader{
+  display: flex;
+  align-items: center;
 }
 </style>

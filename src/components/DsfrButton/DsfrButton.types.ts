@@ -3,6 +3,7 @@ import type { OhVueIcon as VIcon } from 'oh-vue-icons'
 
 export type DsfrButtonProps = {
   disabled?: boolean
+  loading?: boolean
   label?: string
   secondary?: boolean
   tertiary?: boolean

@@ -50,16 +50,21 @@ const iconProps = computed(() => typeof props.icon === 'string'
       [icon as string]: dsfrIcon,
     }"
     :title="iconOnly ? label : undefined"
-    :disabled="disabled"
-    :aria-disabled="disabled"
+    :disabled="disabled || loading"
+    :aria-disabled="disabled || loading"
     :style="(!dsfrIcon && iconOnly) ? { 'padding-inline': '0.5rem' } : {}"
     @click="onClick ? onClick($event) : () => {}"
   >
     <VIcon
-      v-if="icon && !dsfrIcon"
+      v-if="loading"
+      name="ri-loader-4-line"
+      animation="spin"
+    />
+    <VIcon
+      v-if="icon && !dsfrIcon && !loading"
       v-bind="iconProps"
     />
-    <span v-if="!iconOnly">
+    <span v-if="!iconOnly && !loading">
       {{ label }}
       <!-- @slot Slot par défaut pour le contenu du bouton. Sera dans `<button class="fr-btn"><span">` -->
       <slot />

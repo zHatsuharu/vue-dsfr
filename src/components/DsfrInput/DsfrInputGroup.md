@@ -8,17 +8,18 @@ Ce composant est très utile si vous souhaitez afficher un message d’erreur ou
 
 ## 🛠️ Props
 
-| Nom             | Type        | Défaut                  | Obligatoire   | Description                                                   |
-|-----------------|-------------|-------------------------|---------------|---------------------------------------------------------------|
-| `descriptionId` | `Function`  | `() => getRandomId(...)`|               | ID unique pour la description du groupe, généré automatiquement si non spécifié. |
-| `hint`          | `string`    | `''`                    |               | Texte d'indice pour guider l'utilisateur dans le groupe de champs. |
-| `label`         | `string`    | `''`                    |               | Le libellé associé au groupe de champs.                       |
-| `labelClass`    | `string`    | `''`                    |               | Classe CSS personnalisée pour le style du libellé.            |
-| `modelValue`    | `string`    | `''`                    |               | La valeur liée au modèle du composant `DsfrInput`.            |
-| `wrapperClass`  | `string`    | `''`                    |               | Classe CSS pour le style du conteneur du groupe.              |
-| `placeholder`   | `string`    | `undefined`             |               | Texte de l'espace réservé pour l'input.                       |
-| `errorMessage`  | `string`    | `undefined`             |               | Message d'erreur à afficher si une erreur est présente.       |
-| `validMessage`  | `string`    | `undefined`             |               | Message de validation à afficher si l'input est valide.       |
+| Nom             | Type       | Défaut                   | Obligatoire | Description                                                                                                                                                                                                                                    |
+|-----------------|------------|--------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `descriptionId` | `Function` | `() => getRandomId(...)` |             | ID unique pour la description du groupe, généré automatiquement si non spécifié.                                                                                                                                                               |
+| `hint`          | `string`   | `''`                     |             | Texte d'indice pour guider l'utilisateur dans le groupe de champs.                                                                                                                                                                             |
+| `label`         | `string`   | `''`                     |             | Le libellé associé au groupe de champs.                                                                                                                                                                                                        |
+| `labelClass`    | `string`   | `''`                     |             | Classe CSS personnalisée pour le style du libellé.                                                                                                                                                                                             |
+| `modelValue`    | `string`   | `''`                     |             | La valeur liée au modèle du composant `DsfrInput`.                                                                                                                                                                                             |
+| `wrapperClass`  | `string`   | `''`                     |             | Classe CSS pour le style du conteneur du groupe.                                                                                                                                                                                               |
+| `placeholder`   | `string`   | `undefined`              |             | Texte de l'espace réservé pour l'input.                                                                                                                                                                                                        |
+| `valid`         | `boolean`  | `undefined`              |             | Valeur liée à la validation du contenu de l'input. Utile pour la validation dans un formulaire.                                                                                                                                                |
+| `rules`         | `Array`    | `'[]'`                   |             | Tableau de fonctions utlisées pour la validation. A chaque modification de modelValue, celle-ci est testée par toutes les fonctions et qui met à jour valid et message. Les fonctions doivent renvoyer un string qui sera le message d'erreur. |
+| `validMessage`  | `string`   | `undefined`              |             | Message de validation à afficher si l'input est valide.                                                                                                                                                                                        |
 
 ### Attributs implicitement déclarés
 
@@ -26,7 +27,7 @@ Ce composant est très utile si vous souhaitez afficher un message d’erreur ou
 
 Toutes les props passées à `<DsfrInputGroup>` dans une template et qui ne sont pas définies dans les props seront passées à la balise `<DsfrInput>`. Si ces props ne sont pas définies non plus en tant que props dans `DsfrInput`, elles seront passés à la balise native `<input>`, comme par exemple `readonly` ou `disabled`.
 
-Cf. la [note important sur DsfrInput](./DsfrInput.md#attributs-implicitement-declares)
+Cf. la [note important sur DsfrInput](DsfrInput.md#attributs-implicitement-declares)
 
 :::
 

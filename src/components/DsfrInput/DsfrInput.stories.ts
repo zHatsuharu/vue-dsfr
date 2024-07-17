@@ -76,12 +76,12 @@ export default {
     errorMessage: {
       control: 'text',
       description:
-        'Message d’erreur à associer au champ. **Ne fait pas partie du composant. Il appartient à <a href="/?path=/story/composants-champ-de-saisie-champ-avec-message-associ%C3%A9-dsfrinputgroup--champ-en-erreur">DsfrInputGroup</a>**',
+        'Message d’erreur à associer au champ. **Ne fait pas partie du composant. Il appartient à <a href="/public?path=/story/composants-champ-de-saisie-champ-avec-message-associ%C3%A9-dsfrinputgroup--champ-en-erreur">DsfrInputGroup</a>**',
     },
     validMessage: {
       control: 'text',
       description:
-        'Message de validation à associer au champ. **Ne fait pas partie du composant. Il appartient à <a href="/?path=/story/composants-champ-de-saisie-champ-avec-message-associ%C3%A9-dsfrinputgroup--champ-valide">DsfrInputGroup</a>**',
+        'Message de validation à associer au champ. **Ne fait pas partie du composant. Il appartient à <a href="/public?path=/story/composants-champ-de-saisie-champ-avec-message-associ%C3%A9-dsfrinputgroup--champ-valide">DsfrInputGroup</a>**',
     },
     isWithWrapper: {
       control: 'boolean',

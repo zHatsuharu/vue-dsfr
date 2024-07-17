@@ -2,14 +2,15 @@ export type DsfrInputProps = {
   id?: string
   descriptionId?: string
   hint?: string
-  isInvalid?: boolean
-  isValid?: boolean
   isTextarea?: boolean
   isWithWrapper?: boolean
   labelVisible?: boolean
   label?: string
   labelClass?: string
   modelValue?: string | number | null
+  rules?: any
+  valid?: boolean
+  message?: string
   wrapperClass?: string
 }
 
@@ -21,7 +22,8 @@ export type DsfrInputGroupProps = {
   labelClass?: string
   modelValue?: string | number | null
   placeholder?: string
-  errorMessage?: string
   validMessage?: string
+  rules?: any
+  valid?: boolean
   wrapperClass?: string
 }

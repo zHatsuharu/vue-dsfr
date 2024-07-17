@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { ref, computed, useAttrs } from 'vue'
+import { ref, computed, useAttrs, watch } from 'vue'
 import type { Ref } from 'vue'
 
-import { getRandomId } from '../../utils/random-utils'
+import { getRandomId } from '@/utils/random-utils'
 
 import type { DsfrInputProps } from './DsfrInput.types'
 
@@ -18,14 +18,15 @@ const props = withDefaults(defineProps<DsfrInputProps>(), {
   hint: '',
   label: '',
   labelClass: '',
-  modelValue: '',
   wrapperClass: '',
+  rules: [],
 })
 
-defineEmits<{ (e: 'update:modelValue', payload: string): void }>()
+const modelValue = defineModel('modelValue', { required: false })
+const valid = defineModel('valid', { required: false })
+const message = defineModel('message', { required: false, default: undefined })
 
 const attrs = useAttrs()
-
 const __input: Ref<HTMLElement | null> = ref(null)
 const focus = () => __input.value?.focus()
 
@@ -36,6 +37,18 @@ const finalLabelClass = computed(() => [
   { invisible: !props.labelVisible },
   props.labelClass,
 ])
+
+watch(() => modelValue.value, () => {
+  let validated = true
+  for (const f of props.rules) {
+    if (f(modelValue.value).length > 0) {
+      validated = false
+      message.value = f(modelValue.value)
+      break
+    }
+  }
+  valid.value = validated
+})
 
 defineExpose({
   focus,
@@ -73,8 +86,8 @@ defineExpose({
     ref="__input"
     class="fr-input"
     :class="{
-      'fr-input--error': isInvalid,
-      'fr-input--valid': isValid,
+      'fr-input--error': !valid,
+      'fr-input--valid': valid,
     }"
     :value="modelValue"
     :aria-describedby="descriptionId || undefined"
@@ -95,8 +108,8 @@ defineExpose({
       ref="__input"
       class="fr-input"
       :class="{
-        'fr-input--error': isInvalid,
-        'fr-input--valid': isValid,
+        'fr-input--error': !valid,
+        'fr-input--valid': valid,
       }"
       :value="modelValue"
       :aria-describedby="descriptionId || undefined"

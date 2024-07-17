@@ -1,11 +1,10 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, type Ref, ref, watch } from 'vue'
 
-import DsfrInput from './DsfrInput.vue'
-
-import { getRandomId } from '../../utils/random-utils'
+import { getRandomId } from '@/utils/random-utils'
 
 import type { DsfrInputGroupProps } from './DsfrInput.types'
+import DsfrInputEXP from '@/components/DsfrInput/DsfrInput.vue'
 
 export type { DsfrInputGroupProps }
 
@@ -18,17 +17,22 @@ const props = withDefaults(defineProps<DsfrInputGroupProps>(), {
   hint: '',
   label: '',
   labelClass: '',
-  modelValue: '',
   wrapperClass: '',
   placeholder: undefined,
-  errorMessage: undefined,
   validMessage: undefined,
+  rules: [],
 })
 
-defineEmits<{ (e: 'update:modelValue', payload: string): void }>()
+const modelValue = defineModel('modelValue', { required: false })
+const valid = defineModel('valid', { required: false, default: undefined })
 
-const message = computed(() => props.errorMessage || props.validMessage)
-const messageClass = computed(() => props.errorMessage ? 'fr-error-text' : 'fr-valid-text')
+const message: Ref<string | undefined> = ref('')
+const messageClass = computed(() => valid.value ? 'fr-valid-text' : 'fr-error-text')
+watch(() => valid.value, () => {
+  if (valid.value) {
+    message.value = props.validMessage
+  }
+})
 </script>
 
 <template>
@@ -36,27 +40,27 @@ const messageClass = computed(() => props.errorMessage ? 'fr-error-text' : 'fr-v
     class="fr-input-group"
     :class="[
       {
-        'fr-input-group--error': errorMessage,
-        'fr-input-group--valid': validMessage,
+        'fr-input-group--error': !valid && !!message,
+        'fr-input-group--valid': valid && !!validMessage && !!message,
       },
       wrapperClass,
     ]"
   >
-    <slot name="before-input" />
+    <slot name="before-input"/>
     <!-- @slot Slot par défaut pour le contenu du groupe de champ -->
-    <slot />
-    <DsfrInput
+    <slot/>
+    <DsfrInputEXP
       v-if="!$slots.default"
       v-bind="$attrs"
-      :is-valid="!!validMessage"
-      :is-invalid="!!errorMessage"
+      v-model:valid="valid"
+      v-model:model-value="modelValue"
+      v-model:message="message"
       :label="label"
       :hint="hint"
       :description-id="(message && descriptionId) || undefined"
       :label-visible="labelVisible"
-      :model-value="modelValue"
       :placeholder="placeholder"
-      @update:model-value="$emit('update:modelValue', $event)"
+      :rules="rules"
     />
     <div
       v-if="message"

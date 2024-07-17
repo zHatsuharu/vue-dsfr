@@ -10,14 +10,14 @@ Le composant `DsfrTable` est un élément puissant et polyvalent pour afficher d
 
 ## Props 🛠️
 
-| Nom               | Type                                           | Défaut    | Obligatoire | Description                                                                                         |
-|-------------------|------------------------------------------------|-----------|-------------|-----------------------------------------------------------------------------------------------------|
-| `title`         | `string`                                |      |    ✅         | Les en-têtes de votre tableau.                                                                      |
-| `headers`         | `Array<string>`                                | `[]`      |             | Les en-têtes de votre tableau.                                                                      |
-| `rows`            | `Array<DsfrTableRowProps \| string[] \| DsfrTableCellProps[]>` | `[]`      |             | Les données de chaque rangée dans le tableau.                                                       |
-| `rowKey`          | `string \| Function`                           | `undefined`|             | Une clé unique pour chaque rangée, utilisée pour optimiser la mise à jour du DOM.                   |
-| `currentPage`     | `number`                                       | `1`       |             | La page actuelle dans la pagination du tableau.                                                     |
-| `resultsDisplayed`| `number`                                       | `10`      |             | Le nombre de résultats affichés par page dans la pagination.                                        |
+| Nom                | Type                                                           | Défaut      | Obligatoire | Description                                                                       |
+|--------------------|----------------------------------------------------------------|-------------|-------------|-----------------------------------------------------------------------------------|
+| `title`            | `string`                                                       |             | ✅           | Les en-têtes de votre tableau.                                                    |
+| `headers`          | `Array<string>`                                                | `[]`        |             | Les en-têtes de votre tableau.                                                    |
+| `rows`             | `Array<DsfrTableRowProps \| string[] \| DsfrTableCellProps[]>` | `[]`        |             | Les données de chaque rangée dans le tableau.                                     |
+| `rowKey`           | `string \| Function`                                           | `undefined` |             | Une clé unique pour chaque rangée, utilisée pour optimiser la mise à jour du DOM. |
+| `currentPage`      | `number`                                                       | `1`         |             | La page actuelle dans la pagination du tableau.                                   |
+| `resultsDisplayed` | `number`                                                       | `10`        |             | Le nombre de résultats affichés par page dans la pagination.                      |
 
 ## Events 📡
 

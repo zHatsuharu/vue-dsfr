@@ -5,26 +5,30 @@ import DsfrInputGroup from './DsfrInputGroup.vue'
 describe('DsfrInputGroup', () => {
   it('should render DsfrInputGroup with error message', () => {
     // Given
-    const errorMessage = 'my error message'
+    const rule = () => {
+      return 'message d erreur'
+    }
+    const rules = [rule]
     const descriptionId = 'my-id'
 
     // When
     const { getByTestId } = render(DsfrInputGroup, {
       stubs: ['v-icon'],
       props: {
-        errorMessage,
+        rules,
         descriptionId,
       },
     })
 
     // Then
-    expect(getByTestId(descriptionId)).toHaveTextContent(errorMessage)
+    expect(getByTestId(descriptionId)).toHaveTextContent('message d erreur')
   })
 
   it('should render DsfrInputGroup with valid message', () => {
     // Given
     const validMessage = 'my valid message'
     const descriptionId = 'my-id'
+    const valid = true
 
     // When
     const { getByTestId } = render(DsfrInputGroup, {
@@ -32,6 +36,7 @@ describe('DsfrInputGroup', () => {
       props: {
         validMessage,
         descriptionId,
+        valid,
       },
     })
 

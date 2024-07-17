@@ -5,8 +5,9 @@ import DsfrInputGroup from './DsfrInputGroup.vue'
 describe('DsfrInputGroup', () => {
   it('should render DsfrInputGroup with error message', () => {
     // Given
-    const rule = () => {
-      return 'message d erreur'
+    const rule = (chain: string) => {
+      const res = chain.concat('error')
+      return res
     }
     const rules = [rule]
     const descriptionId = 'my-id'

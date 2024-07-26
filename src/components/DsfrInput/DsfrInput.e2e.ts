@@ -5,7 +5,7 @@ const label = 'Label champ de saisie'
 const labelVisible = true
 const disabled = false
 const isTextarea = true
-const isValid = true
+const valid = true
 
 describe('DsfrInput', () => {
   it('should mount DsfrInput', () => {
@@ -15,7 +15,7 @@ describe('DsfrInput', () => {
         labelVisible,
         disabled,
         isTextarea,
-        isValid,
+        valid,
       },
     })
       .get('.fr-label')
@@ -26,3 +26,4 @@ describe('DsfrInput', () => {
       .should('have.class', 'fr-input--valid')
   })
 })
+
